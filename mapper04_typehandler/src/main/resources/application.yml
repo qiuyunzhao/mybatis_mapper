@@ -1,0 +1,25 @@
+spring:
+  #  设置druid数据源
+  datasource:
+    # 数据源基本配置
+    username: root
+    password: zhao17615110273
+    url: jdbc:mysql://127.0.0.1:3306/mybatis_mapper?characterEncoding=UTF-8&serverTimezone=GMT%2B8
+    driver‐class‐name: com.mysql.cj.jdbc.Driver # 注意MySQL8.x的驱动
+    type: com.alibaba.druid.pool.DruidDataSource
+
+mybatis:
+  config‐location: classpath:mybatis/mybatis-config.xml  #指定mybatis全局配置文件的位置
+
+#mapper:
+#  enum-as-simple-type: true # 枚举类型当做简单类型处理
+
+# 设置actuator健康管理
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"   # 设置开启所有监控端点（使用/httptrace还需注册HttpTraceRepository实例）
+  endpoint:
+    health:
+      show-details: always # 设置显示健康状态的详细信息

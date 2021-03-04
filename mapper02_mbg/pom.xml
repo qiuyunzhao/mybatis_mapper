@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>mybatisMapper</artifactId>
+        <groupId>org.haoqian.mybatisMapper</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>mapper02_mbg</artifactId>
+
+    <properties>
+        <!-- ${basedir}引用工程根目录 -->
+
+        <!-- 声明存放源码的目录位置 -->
+        <targetJavaProject>${basedir}/src/main/java</targetJavaProject>
+        <!-- 声明MBG生成XxxMapper接口后存放的package位置 -->
+        <targetMapperPackage>com.haoqian.mappers</targetMapperPackage>
+        <!-- 声明MBG生成实体类后存放的package位置 -->
+        <targetModelPackage>com.haoqian.entity</targetModelPackage>
+
+        <!-- 声明存放资源文件和XML配置文件的目录位置 -->
+        <targetResourcesProject>${basedir}/src/main/resources</targetResourcesProject>
+        <!-- 声明存放具体XxxMapper.xml文件的目录位置 -->
+        <targetXMLPackage>mappers</targetXMLPackage>
+
+        <!-- 通用Mapper的版本号 -->
+        <mapper.version>4.0.0-beta3</mapper.version>
+        <!-- mybatis版本号 -->
+        <mybatis.version>3.4.6</mybatis.version>
+        <!-- MySQL驱动版本号 -->
+        <mysql.version>5.1.48</mysql.version>
+    </properties>
+
+    <dependencies>
+        <!-- 版本号与项目中一致 -->
+        <dependency>
+            <groupId>tk.mybatis</groupId>
+            <artifactId>mapper</artifactId>
+            <version>${mapper.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis</artifactId>
+            <version>${mybatis.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql.version}</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <!-- mybatis逆向工程插件 -->
+                <groupId>org.mybatis.generator</groupId>
+                <artifactId>mybatis-generator-maven-plugin</artifactId>
+                <version>1.3.2</version>
+
+                <!-- 配置generatorConfig.xml配置文件的路径 -->
+                <configuration>
+                    <configurationFile>${basedir}/src/main/resources/generator/generatorConfig.xml</configurationFile>
+                    <overwrite>true</overwrite>
+                    <verbose>true</verbose>
+                </configuration>
+
+                <!-- MBG插件的依赖信息 -->
+                <dependencies>
+                    <dependency>
+                        <groupId>mysql</groupId>
+                        <artifactId>mysql-connector-java</artifactId>
+                        <version>${mysql.version}</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>tk.mybatis</groupId>
+                        <artifactId>mapper</artifactId>
+                        <version>${mapper.version}</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

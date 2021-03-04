@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="commons" />
+        <module name="mapper04_typehandler" />
+        <module name="mapper03_custom" />
+        <module name="mapper02_mbg" />
+        <module name="mapper01_basis" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="mapper01_basis" options="" />
+      <module name="mapper03_custom" options="" />
+      <module name="mapper04_typehandler" options="" />
+    </option>
+  </component>
+</project>
